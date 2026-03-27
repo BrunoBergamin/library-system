@@ -1,44 +1,81 @@
-﻿# Library System
+# Library System
 
-Sistema de biblioteca em Java, executado no console, com foco em regras basicas de cadastro e emprestimo de livros.
+Sistema de biblioteca em Java executado no console, com foco em cadastro de livros e usuarios, emprestimos, devolucoes e validacoes de regras de negocio.
 
-## O que o sistema faz
+## Visao geral
 
-- Cadastra livros
-- Cadastra usuarios
-- Busca usuarios por e-mail
-- Busca livros por titulo
-- Registra emprestimo de livro
-- Registra devolucao de livro
-- Lista livros, usuarios e emprestimos ativos
+Este projeto foi construido para praticar Java com organizacao em camadas, simulando um pequeno sistema de gestao de biblioteca.
 
-## Perfis do sistema
+## Funcionalidades
 
-- `Administrador`: pode cadastrar livros e consultar informacoes gerais (livros, usuarios e emprestimos ativos)
-- `Usuario`: pode se cadastrar, emprestar livro e devolver livro
+- cadastrar livros
+- cadastrar usuarios
+- buscar livros por titulo
+- buscar usuarios por e-mail
+- registrar emprestimos
+- registrar devolucoes
+- listar livros, usuarios e emprestimos ativos
+
+## Regras de negocio
+
+- livro nao pode ser cadastrado duas vezes com mesmo titulo e autor
+- usuario nao pode ser cadastrado com e-mail repetido
+- emprestimo so acontece se o livro estiver disponivel
+- devolucao nao pode ter data anterior ao emprestimo
+- nao e possivel devolver livro sem emprestimo ativo
 
 ## Estrutura do projeto
 
-- `Main.java`: ponto de entrada da aplicacao
-- `ui/LibraryConsoleUI.java`: menus e interacao no terminal
-- `services/`: regras de negocio (livros, usuarios e emprestimos)
-- `entities/`: classes de dominio (`Book`, `User`, `Loan`, `Admin`, `Person`)
-- `enums/StatusBook.java`: status do livro (`AVAILABLE` e `BORROWED`)
+```text
+src/
+|-- Main.java
+|-- ui/
+|   `-- LibraryConsoleUI.java
+|-- services/
+|   |-- BookService.java
+|   |-- UserService.java
+|   `-- LoanService.java
+|-- entities/
+|   |-- Book.java
+|   |-- User.java
+|   |-- Loan.java
+|   |-- Admin.java
+|   `-- Person.java
+`-- enums/
+    `-- StatusBook.java
+```
 
-## Regras principais
+## Perfis no sistema
 
-- Livro nao pode ser cadastrado duas vezes com mesmo titulo e autor
-- Usuario nao pode ser cadastrado com e-mail repetido
-- Emprestimo so ocorre se o livro estiver `AVAILABLE`
-- Ao emprestar, o status do livro vira `BORROWED`
-- Ao devolver, o status volta para `AVAILABLE`
-- Nao permite devolucao com data anterior a data de emprestimo
-- Nao permite devolver livro sem emprestimo ativo
+- `Administrador`: consulta informacoes gerais e gerencia o cadastro da biblioteca
+- `Usuario`: realiza cadastro, emprestimo e devolucao de livros
 
-## Fluxo geral
+## Como executar
 
-1. O programa abre um menu principal com area de administrador e area de usuario.
-2. Na area de administrador, o sistema concentra cadastro e consultas da biblioteca.
-3. Na area de usuario, o sistema realiza operacoes de emprestimo e devolucao.
-4. Toda validacao de regra acontece na camada `services`.
-# library-system
+Abra o projeto na IDE e rode a classe principal:
+
+```text
+src/Main.java
+```
+
+O repositorio tambem possui o script:
+
+```text
+run-tests.ps1
+```
+
+## Objetivo do repositorio
+
+Treinar modelagem orientada a objetos, validacoes de negocio e separacao entre interface, servicos e entidades em um projeto de console.
+
+## Melhorias futuras
+
+- persistencia em arquivo ou banco de dados
+- busca por ISBN
+- historico de emprestimos
+- autenticacao simples por perfil
+- testes automatizados mais amplos
+
+## Autor
+
+Projeto desenvolvido por Bruno Bergamin como pratica de Java e POO.
