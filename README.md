@@ -1,10 +1,12 @@
 # Library System
 
+Status: projeto de pratica em Java puro.
+
 Sistema de biblioteca em Java executado no console, com foco em cadastro de livros e usuarios, emprestimos, devolucoes e validacoes de regras de negocio.
 
 ## Visao geral
 
-Este projeto foi construido para praticar Java com organizacao em camadas, simulando um pequeno sistema de gestao de biblioteca.
+Este projeto foi construido como pratica de Java puro, simulando um pequeno sistema de gestao de biblioteca. A ideia foi treinar modelagem de classes, validacoes e organizacao de responsabilidades.
 
 ## Funcionalidades
 
@@ -67,6 +69,21 @@ run-tests.ps1
 ## Objetivo do repositorio
 
 Treinar modelagem orientada a objetos, validacoes de negocio e separacao entre interface, servicos e entidades em um projeto de console.
+
+## O que este projeto pratica
+
+- menu em terminal com perfis diferentes
+- uso de `LocalDate` para emprestimo e devolucao
+- regras de disponibilidade de livro
+- busca de usuario e livro para executar a operacao
+- controle de emprestimos ativos em memoria
+
+## Limitacoes atuais
+
+- os dados nao sao persistidos
+- tudo roda em memoria durante a execucao
+- nao ha banco de dados nem API
+- o projeto foi pensado como pratica estruturada de Java, nao como produto final
 
 ## Melhorias futuras
 
